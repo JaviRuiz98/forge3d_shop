@@ -1,0 +1,2 @@
+import type {MetadataRoute} from 'next';import {products} from '@/data/demo';
+export default function sitemap():MetadataRoute.Sitemap{const base='https://layerforge.example';return [{url:base,lastModified:new Date()},{url:`${base}/catalogo`,lastModified:new Date()},{url:`${base}/personalizado`,lastModified:new Date()},...products.map(p=>({url:`${base}/producto/${p.slug}`,lastModified:new Date()}))]}
