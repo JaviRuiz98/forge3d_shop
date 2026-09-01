@@ -102,3 +102,17 @@ Compatible con Vercel y cualquier plataforma Node que soporte Next.js. Añade la
 ## Decisiones UX
 
 El catálogo usa filtros visibles en escritorio y un drawer con botón de aplicar en móvil; las variantes usan controles explícitos y el contenido técnico queda separado para mantener legible la decisión de compra. Se ha priorizado tamaño táctil, ausencia de diálogos que desborden, navegación rápida y carga de imágenes optimizada mediante `next/image`.
+
+## Despliegue en GitHub Pages
+
+Este proyecto está preparado para exportación estática de Next.js y despliegue automático en GitHub Pages mediante `.github/workflows/deploy-pages.yml`.
+
+1. Sube el proyecto al repositorio `javiruiz98/forge3d_shop` en la rama `main`.
+2. En GitHub abre **Settings → Pages** y selecciona **GitHub Actions** como fuente.
+3. En **Settings → Secrets and variables → Actions**, crea estos Repository secrets:
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
+4. Haz `git push`. El workflow compilará la aplicación con `NEXT_PUBLIC_BASE_PATH=/forge3d_shop`, generará `out/` y la publicará.
+5. La URL resultante será `https://javiruiz98.github.io/forge3d_shop/`.
+
+Para desarrollo local sigue usando `npm run dev`; no es necesario establecer `NEXT_PUBLIC_BASE_PATH` localmente.
